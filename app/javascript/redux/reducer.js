@@ -1,25 +1,34 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const GREETINGS = "GREETINGS";
 
 const init = [];
 
-const reducer = (state = init, action) => {
+const greetingReducer = (state = init, action) => {
   switch (action.type) {
     case GREETINGS:
-      return action.greetings;
+      return action.greetings
     default:
       return state;
   }
 };
 
-export default reducer;
+export default greetingReducer;
 
-export const getGreetings = async (dispatch) => {
-  try {
-    const { data } = await axios.get("/greetings");
-    dispatch({ type: GREETINGS, greetings: data });
-  } catch (ex) {
-    console.log(ex);
+const url = "http://localhost:3000/api/greeting";
+
+export const getGreetings = createAsyncThunk( GREETINGS, async (args, {dispatch}) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
   }
-};
+  try {
+    const {data} = await axios.get(url, config);
+    dispatch({ type: GREETINGS, greetings: data[0] });
+    console.log("data");
+  } catch (err) {
+    console.log(err);
+  }
+});
