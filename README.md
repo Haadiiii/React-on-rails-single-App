@@ -78,7 +78,7 @@ To get a local copy up and running, follow these steps.
 Clone this repository to your desired folder:
 
 ```sh
-  cd yourfolder
+  cd my-folder
   git clone
 ```
 
@@ -89,7 +89,6 @@ Install this project with:
   cd React-on-rails-single-app
   bundle install
   yarn add react-dom react-redux @reduxjs/toolkit axios
-```
 <!--
 Example command:
 
@@ -133,7 +132,7 @@ Example:
 
 
     👤 **Hamid Ali**
-
+    
 - GitHub: [Haadiiii](https://github.com/githubhandle)
 - Twitter: [@Haadiii](https://twitter.com/twitterhandle)
 - LinkedIn: [Haadiii](https://linkedin.com/in/linkedinhandle)
